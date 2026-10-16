@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#082a34">
+  <meta name="description" content="诺亚方舟海上远程医疗网站视觉原型。">
+  <title>诺亚方舟 · 医疗支持，无远弗届</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="experience.css">
+  <script src="ui.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="hero-sequence.js" defer></script>
+</head>
+<body data-page="home">
+<svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-north" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 40 40"><path d="m6 25 14 5 14-5-4 9H10l-4-9Zm8 2V12h13v15M18 12V7h5v5M14 17h13M7 37c4-3 7 3 13 0 6-3 8 3 13 0"/><path d="M18 21h1m4 0h1"/></symbol>
+    <symbol id="i-device" viewBox="0 0 40 40"><rect x="8" y="5" width="24" height="21" rx="3"/><path d="m12 17 5-1 3-6 4 12 3-6h2M20 26v7M12 34h16"/></symbol>
+    <symbol id="i-network" viewBox="0 0 40 40"><circle cx="20" cy="20" r="5"/><circle cx="7" cy="7" r="3"/><circle cx="33" cy="7" r="3"/><circle cx="7" cy="33" r="3"/><circle cx="33" cy="33" r="3"/><path d="m9 9 7 7m8 8 7 7M9 31l7-7M24 16l7-7"/></symbol>
+    <symbol id="i-doctor" viewBox="0 0 40 40"><circle cx="20" cy="12" r="7"/><path d="M7 35v-4c0-7 6-10 13-10s13 3 13 10v4M13 24v6a5 5 0 0 0 10 0v-6M29 31v4m-2-2h4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 40 40"><path d="M20 34S5 24 5 14a8 8 0 0 1 15-4 8 8 0 0 1 15 4c0 10-15 20-15 20Z"/><path d="M10 20h6l3-7 4 13 3-6h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 40 40"><path d="M20 4 6 10v11c0 8 14 15 14 15s14-7 14-15V10L20 4Z"/><path d="m13 20 5 5 10-11"/></symbol>
+    <symbol id="i-waves" viewBox="0 0 40 40"><path d="M4 12c5-8 11 8 16 0s11 8 16 0M4 21c5-8 11 8 16 0s11 8 16 0M4 30c5-8 11 8 16 0s11 8 16 0"/></symbol>
+  </defs>
+</svg>
+<a class="skip-link" href="#main">跳转到内容</a>
+<header class="site-header"><a href="index.html" class="brand" aria-label="诺亚方舟 首页">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v18m-7-11h14M10 24l14 7 14-7-5 13H15l-5-13Z"/><path d="M7 39c5-3 8 3 17 0s12 3 17 0M9 20 24 13l15 7"/></svg>
+    <span class="brand-words"><strong>诺亚方舟</strong><small>NOAH’S ARK · MARITIME CARE</small></span>
+  </a><nav class="desktop-nav" aria-label="主导航"><a href="index.html#connection" data-section="connection">系统全景</a><a href="products.html" data-section="products">产品与设备</a><a href="index.html#services" data-section="services">医疗服务</a><a href="solutions.html" data-section="scenarios">场景解决方案</a></nav>
+<div class="header-actions"><span class="language">中文 <span>/ EN</span></span><button class="header-cta" data-contact>预约演示 <svg aria-hidden="true"><use href="#i-north"/></svg></button><button class="menu-toggle" aria-label="打开导航" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><span class="reading-progress" aria-hidden="true"></span></header>
+<nav id="mobile-nav" class="mobile-nav" aria-label="移动端导航" hidden><a href="index.html#connection" data-section="connection">系统全景</a><a href="products.html" data-section="products">产品与设备</a><a href="index.html#services" data-section="services">医疗服务</a><a href="solutions.html" data-section="scenarios">场景解决方案</a><button data-contact>预约演示 ↗</button></nav>
+<main id="main">
+  <section class="hero-film" data-hero-film aria-labelledby="hero-title">
+  <div class="hero">
+    <picture class="hero-picture">
+      <source media="(max-width: 760px)" srcset="assets/generated/hero-mobile-start.webp">
+      <img class="hero-photo" src="assets/generated/hero-video-poster.webp" width="1280" height="720" alt="航船穿越深海，向着新的远方前行" fetchpriority="high">
+    </picture>
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-shade"></div><div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-content page-width">
+      <div class="hero-eyebrow"><span class="tiny-cross">+</span> MARITIME TELEMEDICINE <span class="eyebrow-rule"></span></div>
+      <h1 id="hero-title">让专业医疗，<br>随每一次远航<span class="hero-accent">抵达。</span></h1>
+      <p class="hero-english">Across the ocean.<br><em>Closer to care.</em></p>
+      <p class="hero-description">连接船端健康设备与陆地医疗资源，<br>让远海之上的每一份健康需求，都有所依。</p>
+      <div class="hero-buttons"><a class="button button-light" href="#connection">探索系统方案 <svg><use href="#i-arrow"/></svg></a><button class="film-button" data-tour><span class="play-icon">▶</span> 观看协同演示</button></div>
+    </div>
+    <div class="hero-film-message page-width" aria-hidden="true">
+      <p class="hero-eyebrow"><span class="tiny-cross">+</span> ACROSS THE OCEAN</p>
+      <h2>海上与陆地，<br>让专业<span>始终相连。</span></h2>
+      <p>每一份来自海上的健康需求，<br>连接陆地的专业支持。</p>
+      <a class="button button-light" href="#connection" tabindex="-1">探索连接的力量 <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="signal-label" aria-hidden="true"><span class="signal-point"></span><span>SHIP-TO-SHORE<br><b>连接，不止于距离。</b></span></div>
+    <div class="hero-bottom page-width"><div class="hero-capabilities"><span><i></i> 船端健康采集</span><span>远程专家协同</span><span>持续健康支持</span></div><a class="scroll-cue" href="#connection">SCROLL TO DISCOVER <span>↓</span></a></div>
+    <span class="hero-side-note">A NEW HORIZON OF CARE — DESIGN CONCEPT</span>
+    <div class="hero-film-progress" aria-hidden="true"><span></span></div>
+  </div>
+  </section>
+
+  <section class="connection section-space" id="connection">
+    <div class="page-width">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span>01</span> THE CONNECTED CARE</p><h2>海上与陆地之间，<br>让专业支持<span class="serif-em">始终相连。</span></h2></div><div class="section-intro"><p>从一次健康信息采集，到一场跨越海洋的专业协同。<br>将设备、系统与医疗支持连接起来，<br>构建清晰、连贯的海上健康服务链路。</p><a class="text-link" href="products.html">认识这套系统 <svg><use href="#i-north"/></svg></a></div></div>
+      <div class="connection-board reveal">
+        <div class="network-canvas">
+          <div class="map-topline"><span><i></i> SHIP TO SHORE CONNECTION</span><small>系统协同示意</small></div>
+          <svg class="network-art" viewBox="0 0 800 370" preserveAspectRatio="none" aria-hidden="true">
+            <defs><pattern id="dot-grid" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#a9bdbe" opacity=".4"/></pattern><linearGradient id="route-color"><stop stop-color="#6ca9a3"/><stop offset="1" stop-color="#143d48"/></linearGradient></defs>
+            <rect x="0" y="0" width="800" height="370" fill="url(#dot-grid)"/>
+            <g fill="none" stroke="#d4dfda" stroke-width="1"><ellipse cx="400" cy="220" rx="340" ry="110"/><ellipse cx="400" cy="220" rx="275" ry="160"/><ellipse cx="400" cy="220" rx="180" ry="200"/><path d="M0 220h800M400 0v370M70 120c190 80 470 80 660 0M45 310c200-80 510-80 710 0"/></g>
+            <path class="route-base" d="M100 245C160 245 160 113 290 113S390 252 490 252 585 108 690 108"/>
+            <path class="route-flow" d="M100 245C160 245 160 113 290 113S390 252 490 252 585 108 690 108"/>
+            <g fill="#98b9b0"><circle cx="180" cy="70" r="3"/><circle cx="615" cy="300" r="3"/><circle cx="590" cy="60" r="2"/><circle cx="352" cy="310" r="2"/></g>
+          </svg>
+          <button class="network-node node-0 active" data-node="0" aria-pressed="true"><span class="node-symbol"><svg><use href="#i-ship"/></svg></span><span class="node-caption">海上人员<small>ONBOARD</small></span></button>
+          <button class="network-node node-1" data-node="1" aria-pressed="false"><span class="node-symbol"><svg><use href="#i-device"/></svg></span><span class="node-caption">健康采集<small>COLLECTION</small></span></button>
+          <button class="network-node node-2" data-node="2" aria-pressed="false"><span class="node-symbol"><svg><use href="#i-network"/></svg></span><span class="node-caption">系统协同<small>CONNECTION</small></span></button>
+          <button class="network-node node-3" data-node="3" aria-pressed="false"><span class="node-symbol"><svg><use href="#i-doctor"/></svg></span><span class="node-caption">陆地专家<small>EXPERT SUPPORT</small></span></button>
+          <div class="network-bottom"><span>海上需求，连接陆地专业支持</span><small>点击节点探索链路 <span>↗</span></small></div>
+        </div>
+        <div class="network-detail" aria-live="polite"><span class="detail-kicker" id="node-kicker">01 / ONBOARD</span><div class="detail-visual"><svg id="detail-icon"><use href="#i-ship"/></svg><span class="orbital-ring"></span></div><h3 id="node-title">每一次连接，<br>都从海上需求开始。</h3><p id="node-description">面向船舶与海上作业场景，让健康信息与专业支持之间，建立更清晰的连接。</p><div class="detail-tags" id="node-tags"><span>船舶场景</span><span>健康需求</span></div><div class="detail-pagination"><span id="node-page">01</span><span class="detail-track"><i></i></span><span>04</span><button id="next-node" aria-label="查看下一个协同环节"><svg><use href="#i-arrow"/></svg></button></div></div>
+      </div>
+      <div class="connection-principles reveal"><div><svg><use href="#i-device"/></svg><span><b>让信息被看见</b><small>从船端健康信息采集开始</small></span></div><div><svg><use href="#i-network"/></svg><span><b>让协同更清晰</b><small>连接设备、系统与专业资源</small></span></div><div><svg><use href="#i-shield"/></svg><span><b>让支持更连贯</b><small>贯穿日常与海上作业场景</small></span></div></div>
+      <div class="care-gallery reveal">
+        <figure><div class="care-photo"><img src="assets/generated/onboard-care.webp" width="1586" height="992" alt="船舱内开展日常健康信息采集的概念场景" loading="lazy"></div><figcaption><span>01 / ONBOARD CARE</span><h3>从船端的一次健康采集开始。</h3><p>让每一份信息，成为专业支持的依据。</p></figcaption></figure>
+        <figure><div class="care-photo"><img src="assets/generated/shore-specialist.webp" width="1586" height="992" alt="陆地医疗专业人员进行远程协同的概念场景" loading="lazy"></div><figcaption><span>02 / SHORE SUPPORT</span><h3>让陆地的专业，陪伴每一次远航。</h3><p>跨越距离，连接持续而清晰的健康支持。</p></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="products section-space" id="products"><div class="page-width">
+    <div class="section-heading reveal"><div><p class="eyebrow"><span>02</span> BUILT FOR MARITIME</p><h2>一套协同系统，<br>连接每一次<span class="serif-em">健康需求。</span></h2></div><p class="section-intro">将船端设备与远程医疗管理平台融为一体，<br>让健康采集有依托，让远程支持有依据。</p></div>
+    <div class="product-layout reveal">
+      <div class="product-stage"><div class="product-tabs" role="tablist" aria-label="产品类别"><button role="tab" aria-selected="true" aria-controls="device-panel" id="device-tab" data-product="device">船端采集设备</button><button role="tab" aria-selected="false" aria-controls="platform-panel" id="platform-tab" data-product="platform" tabindex="-1">医疗管理平台</button></div>
+        <div id="device-panel" role="tabpanel" aria-labelledby="device-tab" class="product-panel">
+          <button class="device-zoom" data-zoom>放大查看 ↗</button><span class="product-vertical">ONBOARD HEALTH STATION</span>
+          <img id="workstation-image" class="medical-device-photo" src="assets/generated/medical-workstation.webp" width="1448" height="1086" alt="船端医疗工作站整体外观概念图" loading="lazy">
+          <div class="device-views" role="group" aria-label="设备视图"><button data-device-view="medical-workstation" aria-pressed="true">整体外观</button><button data-device-view="medical-workstation-detail" aria-pressed="false">采集细节</button></div>
+          <span class="product-caption">设备外观概念示意 · 非具体型号</span>
+        </div>
+        <div id="platform-panel" role="tabpanel" aria-labelledby="platform-tab" class="product-panel platform-panel" hidden><div class="platform-window"><div class="platform-titlebar"><span class="mini-logo">+</span> 诺亚方舟 · 医疗协同平台 <span class="demo-chip">演示数据</span></div><div class="platform-body"><aside><span class="selected">协同工作台</span><span>健康信息</span><span>服务记录</span><span>资料管理</span><span>系统设置</span></aside><div class="platform-main"><p class="platform-welcome">远程健康支持工作台</p><div class="platform-status"><span><i></i> 演示连接已建立</span><small>船端 → 医疗支持端</small></div><div class="platform-wave"><span>心电信息 / 功能示意</span><svg viewBox="0 0 350 90"><path d="M0 50h55l10-13 9 25 11-50 12 65 9-28h50l12-13 8 26 11-49 12 64 11-28h80l9-10 9 10h42"/></svg></div><div class="platform-bottom"><div><small>协同信息</small><strong>健康信息概览</strong><p>采集信息、服务记录与支持流程</p></div><span>→</span></div></div></div></div><span class="product-caption">医疗管理平台界面概念 · 演示数据</span></div>
+      </div>
+      <div class="product-info"><span class="product-number" id="product-number">01 / HARDWARE</span><h3 id="product-title">从船端，<br>看见每一份健康信息。</h3><p id="product-description">面向海上环境的健康采集工作站，将多维健康信息汇集起来，为后续专业支持提供参考。</p><div class="product-feature-list" id="product-features"><div><span>01</span><b>多维信息采集</b><small>血压、心电等指标支持以实际设备为准</small></div><div><span>02</span><b>面向船端场景</b><small>结合空间、网络及部署条件配置</small></div><div><span>03</span><b>连接医疗支持</b><small>与远程系统形成完整协同链路</small></div></div><div class="page-actions"><a class="text-link" href="products.html">探索产品详情 <svg><use href="#i-north"/></svg></a><button class="button-ghost" data-tour>观看协同演示 ▷</button></div></div>
+    </div>
+  </div></section>
+
+  <section class="services section-space" id="services"><div class="page-width services-layout"><div class="service-statement reveal"><p class="eyebrow"><span>03</span> PROFESSIONAL SUPPORT</p><h2>专业，<br>始终<span>在场。</span></h2><p>从日常关怀，到关键时刻的专业指导。<br>让海上健康支持，多一份从容。</p><div class="service-seal"><svg><use href="#i-heart"/></svg><span>CARE WITHOUT<br>THE DISTANCE</span></div></div><div class="service-list reveal">
+    <details open><summary><span class="service-index">01</span><span class="service-name">日常健康咨询<small>EVERYDAY HEALTH</small></span><span class="accordion-plus">+</span></summary><p>围绕海上人员的常见健康需求，提供专业咨询与健康管理建议，让日常关怀有处可寻。</p></details>
+    <details><summary><span class="service-index">02</span><span class="service-name">远程医疗指导<small>REMOTE MEDICAL SUPPORT</small></span><span class="accordion-plus">+</span></summary><p>结合沟通信息与船端采集资料，协助建立专业医疗支持链路。具体服务内容以正式接入方案为准。</p></details>
+    <details><summary><span class="service-index">03</span><span class="service-name">应急处置指导<small>EMERGENCY GUIDANCE</small></span><span class="accordion-plus">+</span></summary><p>通过既定服务通道连接专业支持，为海上突发健康需求提供指导，并衔接必要的线下医疗资源。</p></details>
+    <details><summary><span class="service-index">04</span><span class="service-name">合理用药指导<small>MEDICATION GUIDANCE</small></span><span class="accordion-plus">+</span></summary><p>围绕随船药品与实际需求，提供专业用药咨询，帮助海上人员理解药品使用注意事项。</p></details>
+    <details><summary><span class="service-index">05</span><span class="service-name">船员健康科普<small>HEALTH EDUCATION</small></span><span class="accordion-plus">+</span></summary><p>围绕海上作业与日常生活，分享健康防护、常见病预防与应急处置相关知识。</p></details>
+  </div></div></section>
+
+  <section class="scenarios section-space" id="scenarios"><div class="page-width"><div class="section-heading reveal"><div><p class="eyebrow"><span>04</span> WHEREVER YOU SAIL</p><h2>远航各有方向，<br>健康关怀<span class="serif-em">始终如一。</span></h2></div><p class="section-intro">理解不同海上场景，<br>为每一种远离陆地的工作与生活，<br>连接适合的医疗支持。</p></div><div class="scenario-grid reveal">
+      <button class="scenario-card" data-scenario="merchant"><img src="assets/generated/hero-desktop-start.webp" alt="远洋商船航行的概念场景" loading="lazy" width="1672" height="941"><span class="scenario-overlay"></span><span class="scenario-top">01 / MERCHANT VESSELS</span><span class="scenario-bottom"><span><strong>远洋商船</strong><small>让专业支持，与船队同行。</small></span><span class="round-arrow"><svg><use href="#i-north"/></svg></span></span></button>
+      <button class="scenario-card" data-scenario="cruise"><img src="assets/generated/cruise-scenario.webp" alt="邮轮在海上航行的概念场景" loading="lazy" width="1586" height="992"><span class="scenario-overlay"></span><span class="scenario-top">02 / CRUISE VESSELS</span><span class="scenario-bottom"><span><strong>邮轮客运</strong><small>为海上旅程，连接健康关怀。</small></span><span class="round-arrow"><svg><use href="#i-north"/></svg></span></span></button>
+      <button class="scenario-card offshore-card" data-scenario="offshore"><img src="assets/generated/offshore-scenario.webp" alt="海上作业平台的概念场景" loading="lazy" width="1586" height="992"><span class="scenario-overlay"></span><span class="scenario-top">03 / OFFSHORE OPERATIONS</span><span class="scenario-bottom"><span><strong>海上作业平台</strong><small>让健康关怀，抵达作业一线。</small></span><span class="round-arrow"><svg><use href="#i-north"/></svg></span></span></button>
+    </div><div class="section-link-row"><a class="text-link" href="solutions.html">探索全部场景 <svg><use href="#i-north"/></svg></a></div><p class="scenario-note">方案结合人员规模、设备配置与通信条件制定。场景为 AI 概念示意。</p></div></section>
+
+  <section class="contact-banner" id="contact"><div class="contact-contours" aria-hidden="true"></div><div class="page-width contact-content reveal"><div><p class="eyebrow">LET’S GO FURTHER, TOGETHER.</p><h2>下一次远航，<br>让健康支持同行。</h2><p class="contact-english">Care, <em>beyond the coastline.</em></p></div><div class="contact-action"><p>从了解您的海上场景开始，<br>一起探索更适合的医疗支持方案。</p><button class="button button-light" data-contact>预约方案演示 <svg><use href="#i-north"/></svg></button><span>联系对接 → 确认需求 → 方案沟通</span></div></div></section>
+</main>
+<footer class="site-footer"><div class="page-width footer-top"><a href="index.html" class="brand footer-brand"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v18m-7-11h14M10 24l14 7 14-7-5 13H15l-5-13Z"/><path d="M7 39c5-3 8 3 17 0s12 3 17 0M9 20 24 13l15 7"/></svg><span class="brand-words"><strong>诺亚方舟</strong><small>NOAH’S ARK · MARITIME CARE</small></span></a><p>青岛万育堂医疗物资供应链有限公司<br>诺亚方舟（青岛）医疗管理有限公司</p><a href="#main" class="back-top">返回顶部 <span>↑</span></a></div><div class="page-width footer-bottom"><span>© 2026 NOAH’S ARK. MARITIME CARE.</span><span>界面设计预览 · 展示内容及能力以正式方案为准</span><a href="ASSETS.md">图像来源 ↗</a></div></footer>
+
+
+<aside class="quick-actions" aria-label="快捷操作"><button data-contact><svg aria-hidden="true"><use href="#i-north"/></svg>方案咨询</button><a href="#main" aria-label="返回顶部">↑</a></aside>
+<dialog id="contact-dialog" class="dialog contact-dialog" aria-labelledby="contact-title" aria-describedby="contact-intro">
+  <button class="dialog-close" data-close aria-label="关闭预约窗口">×</button>
+  <div class="contact-layout"><aside class="contact-aside"><img src="assets/generated/hero-desktop-start.webp" alt="" loading="lazy"><p class="modal-kicker">A CONVERSATION, A NEW HORIZON.</p><h3>从一次交流开始，<br>让专业支持<br><span>陪伴下一次远航。</span></h3><p>Care, beyond<br>the coastline.</p><div class="contact-path"><div><span>01</span>了解您的海上场景</div><div><span>02</span>共同梳理实际需求</div><div><span>03</span>探索合适的协同方案</div></div></aside>
+  <div class="contact-main"><p class="modal-kicker">LET’S CONNECT</p><h2 id="contact-title" tabindex="-1" data-dialog-focus>开启一段专业对话。</h2><p id="contact-intro" class="contact-intro">从您的场景出发，了解适合的海上医疗支持方案。</p>
+  <div class="form-progress" aria-label="预约步骤"><span class="active" data-form-progress aria-current="step"><b>1</b>选择场景</span><span data-form-progress><b>2</b>联系信息</span></div>
+  <form id="contact-form"><fieldset data-form-step="0"><legend>您希望了解哪一种场景？</legend><div class="choice-grid">
+    <label class="choice-card"><input type="radio" name="scene" value="merchant" checked><svg aria-hidden="true"><use href="#i-ship"/></svg>远洋商船</label>
+    <label class="choice-card"><input type="radio" name="scene" value="cruise"><svg aria-hidden="true"><use href="#i-waves"/></svg>邮轮客运</label>
+    <label class="choice-card"><input type="radio" name="scene" value="offshore"><svg aria-hidden="true"><use href="#i-network"/></svg>海上作业</label></div>
+    <p class="need-heading">您关注的内容 <small>（可多选）</small></p><div class="need-options"><label><input type="checkbox" name="needs" value="device">船端设备</label><label><input type="checkbox" name="needs" value="platform">管理平台</label><label><input type="checkbox" name="needs" value="service">医疗支持</label></div>
+    <button id="form-next" class="button button-dark form-next" type="button">下一步 · 联系信息 <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></fieldset>
+    <fieldset data-form-step="1" hidden disabled><legend>留下联系信息，便于后续方案沟通。</legend><div class="contact-fields"><label>您的称呼<input name="name" placeholder="请输入称呼" required maxlength="40" autocomplete="name"></label><label>单位名称<input name="company" placeholder="船舶管理公司 / 船东 / 其他单位" required maxlength="100" autocomplete="organization"></label><label>联系方式<input name="contact" placeholder="手机号或邮箱" required maxlength="100" autocomplete="off"></label></div><div class="form-buttons"><button type="button" id="form-back" class="button-ghost">← 返回</button><button type="submit" class="button button-dark">确认合作意向 <svg aria-hidden="true"><use href="#i-north"/></svg></button></div></fieldset><p class="form-note">当前为界面原型，填写内容仅用于本次交互展示，不会发送或保存。</p></form>
+  <div id="form-success" class="form-success" hidden><svg aria-hidden="true"><use href="#i-shield"/></svg><h3 tabindex="-1">对话，<br>从了解彼此开始。</h3><p>预约交互演示完成。本次填写内容未发送或保存。</p><div class="success-steps">正式接入后，可衔接需求确认、方案沟通与演示安排。</div><button class="button button-dark" data-close>返回浏览 <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div></div>
+</dialog>
+<dialog id="scenario-dialog" class="dialog scenario-dialog" aria-labelledby="scenario-title" aria-describedby="scenario-description"><button class="dialog-close" data-close aria-label="关闭场景详情">×</button><div class="scenario-modal-layout"><div class="scenario-modal-image"><img id="scenario-image" src="assets/generated/hero-desktop-start.webp" alt="远洋商船概念场景" loading="lazy"><span>Every voyage.<br>Closer to care.</span></div><div class="scenario-modal-copy"><p class="modal-kicker" id="scenario-kicker">MERCHANT VESSELS</p><h2 id="scenario-title" tabindex="-1" data-dialog-focus>让专业支持，与船队同行。</h2><p id="scenario-description"></p><div class="scenario-detail-points"><span></span><span></span><span></span></div><div class="page-actions"><a id="scenario-page-link" class="button button-dark" href="solutions.html">探索完整方案 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><button class="text-link" data-contact>场景咨询 <svg aria-hidden="true"><use href="#i-north"/></svg></button></div><small>配置与服务范围结合实际场景制定。影像为概念示意。</small></div></div></dialog>
+<dialog id="tour-dialog" class="dialog tour-dialog" aria-labelledby="tour-title"><button class="dialog-close" data-close aria-label="关闭协同演示">×</button><div class="tour-heading"><p class="modal-kicker">A CONNECTED JOURNEY</p><h2 id="tour-title" tabindex="-1" data-dialog-focus>一次跨越海洋的专业连接。</h2></div><div class="tour-scene"><img id="tour-image" src="assets/generated/hero-desktop-start.webp" alt="远洋商船概念场景" loading="lazy"><div class="tour-scene-content" aria-live="polite"><span id="tour-step-label">01 / ONBOARD</span><h3 id="tour-step-title">从海上需求开始</h3><p id="tour-step-description">面向船舶与海上作业场景，建立健康信息与专业支持之间的连接。</p><div class="tour-tags"><span>海上健康需求</span><span>适配实际场景</span></div></div></div><div class="tour-steps" role="group" aria-label="协同流程"><button data-tour-step="0" class="active" aria-pressed="true">01 船端需求</button><button data-tour-step="1" aria-pressed="false">02 健康采集</button><button data-tour-step="2" aria-pressed="false">03 系统协同</button><button data-tour-step="3" aria-pressed="false">04 专家支持</button></div><div class="tour-controls"><div class="tour-nav"><button id="tour-prev" disabled aria-label="上一步">←</button><span id="tour-count">01 / 04</span><button id="tour-next" aria-label="下一步">→</button></div><span>协同流程 · 功能示意</span><button id="tour-play" aria-pressed="false">自动播放 ▷</button></div></dialog>
+<dialog id="lightbox-dialog" class="dialog lightbox-dialog" aria-labelledby="lightbox-title"><button class="dialog-close" data-close aria-label="关闭设备大图">×</button><div class="lightbox-stage"><img id="lightbox-image" src="assets/generated/medical-workstation.webp" alt="医疗工作站整体外观" loading="lazy"></div><div class="lightbox-footer"><div><h2 id="lightbox-title" tabindex="-1" data-dialog-focus>医疗工作站 · 整体外观</h2><p>设备外观概念示意 · 非具体型号</p></div><div class="lightbox-controls"><button id="lightbox-prev" aria-label="上一张设备图片">←</button><span id="lightbox-count">01 / 02</span><button id="lightbox-next" aria-label="下一张设备图片">→</button></div></div></dialog>
+
+</body>
+</html>

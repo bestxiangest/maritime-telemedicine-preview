@@ -1,0 +1,9 @@
+{
+  "count": 240,
+  "fps": 24,
+  "width": 1280,
+  "height": 720,
+  "prefix": "assets/hero-sequence/frame-",
+  "digits": 4,
+  "extension": ".webp"
+}

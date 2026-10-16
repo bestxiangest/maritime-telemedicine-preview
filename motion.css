@@ -1,0 +1,86 @@
+/* Scroll-driven film and the supplied campaign imagery. */
+.hero-film { --film-progress: 0; --intro-opacity: 1; --intro-shift: 0px; --outro-opacity: 0; --outro-shift: 24px; }
+.hero-picture { position: absolute; inset: 0; z-index: -4; }
+.hero-picture .hero-photo { animation: none; object-position: center; }
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -3; opacity: 0; pointer-events: none; }
+.hero-film.is-ready .hero-canvas { opacity: 1; }
+.hero-film-message { display: none; }
+.hero-film-progress { display: none; }
+.hero-film.is-scroll-active { height: calc(100svh - 90px + var(--film-travel)); }
+.hero-film.is-scroll-active .hero { position: sticky; top: 90px; height: calc(100svh - 90px); min-height: 0; }
+.is-scroll-active .hero-content { opacity: var(--intro-opacity); transform: translateY(var(--intro-shift)); will-change: opacity, transform; }
+.is-scroll-active .hero-content[inert] { pointer-events: none; }
+.is-scroll-active .hero-film-message { display: block; position: absolute; inset: 0; padding-top: clamp(130px, 22vh, 240px); opacity: var(--outro-opacity); transform: translateY(var(--outro-shift)); pointer-events: none; }
+.hero-film-message:not([aria-hidden="true"]) a { pointer-events: auto; }
+.hero-film-message h2 { font-size: clamp(42px, 4vw, 64px); font-weight: 400; line-height: 1.55; letter-spacing: 1px; }
+.hero-film-message h2 span { color: var(--mint); }
+.hero-film-message > p:not(.hero-eyebrow) { font-size: 13px; line-height: 2; color: #c6d8d2; margin: 23px 0 30px; }
+.is-scroll-active .hero-film-progress { display: block; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #d8e5dd20; }
+.hero-film-progress span { display: block; width: 100%; height: 100%; background: var(--mint); transform-origin: left; transform: scaleX(var(--film-progress)); }
+
+.care-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 70px; }
+.care-gallery figure { margin: 0; min-width: 0; }
+.care-photo { aspect-ratio: 1.65; overflow: hidden; background: #e7e9df; }
+.care-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.care-gallery figure:hover img { transform: scale(1.035); }
+.care-gallery figcaption { padding: 24px 0 0; }
+.care-gallery figcaption > span { font-size: 8px; letter-spacing: 2px; color: #829688; }
+.care-gallery h3 { font-size: 21px; line-height: 1.7; font-weight: 450; margin: 12px 0 8px; }
+.care-gallery figcaption p { font-size: 11px; line-height: 1.8; color: #899486; margin: 0; }
+
+.product-stage { background: #eeebe4; border-color: #dfdfd3; }
+.medical-device-photo { position: absolute; top: 62px; left: 0; width: 100%; height: calc(100% - 137px); object-fit: contain; }
+.device-views { position: absolute; bottom: 46px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; }
+.device-views button { padding: 7px 14px; border: 1px solid #b5bdb15e; border-radius: 2px; background: #f7f6f0bb; font-size: 9px; color: #82907f; }
+.device-views button[aria-pressed="true"] { background: #255048; color: #f0f4e9; border-color: #255048; }
+.product-vertical { z-index: 1; color: #9eaa98; }
+.scenario-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.scenario-card { height: 330px; }
+.scenario-card > img { object-position: 66% center; }
+.offshore-card > img { object-position: 57% center; filter: none; }
+.scenario-top { left: 23px; font-size: 7px; letter-spacing: 1.3px; }
+.scenario-bottom { left: 23px; right: 23px; }
+.scenario-bottom strong { font-size: 24px; }
+.scenario-bottom small { font-size: 9px; letter-spacing: .3px; }
+.round-arrow { width: 36px; height: 36px; flex-shrink: 0; }
+
+@media (min-width: 961px) and (max-height: 800px) {
+  .is-scroll-active .hero-content { padding-top: 39px; }
+  .is-scroll-active .hero h1 { font-size: 48px; line-height: 1.4; }
+  .is-scroll-active .hero-eyebrow { margin-bottom: 19px; }
+  .is-scroll-active .hero-english { font-size: 24px; margin-top: 16px; }
+  .is-scroll-active .hero-description { margin: 17px 0 20px; }
+  .is-scroll-active .hero-bottom { bottom: 22px; padding-top: 18px; }
+  .is-scroll-active .hero-film-message { padding-top: 95px; }
+}
+@media (max-width: 960px) {
+  .hero-film-message, .hero-canvas, .hero-film-progress { display: none; }
+  .hero-picture .hero-photo { object-position: center 55%; }
+  .care-gallery { gap: 22px; }
+  .care-gallery h3 { font-size: 18px; }
+  .scenario-grid { grid-template-columns: 1fr 1fr; }
+  .scenario-card:last-child { grid-column: 1 / -1; height: 340px; }
+}
+@media (max-width: 760px) {
+  .hero-picture .hero-photo { object-position: center; filter: none; }
+  .hero-shade { background: linear-gradient(180deg, #052a36b8 0%, #052a3675 35%, #052a3608 69%, #052a36b8 100%); }
+  .hero-content { padding-top: 43px; }
+  .hero h1 { font-size: clamp(30px, 8.3vw, 38px); line-height: 1.55; letter-spacing: .3px; }
+  .hero-english { font-size: 25px; margin-top: 21px; }
+  .hero-description { margin: 21px 0 0; }
+  .hero-buttons { margin-top: 23px; }
+  .signal-label { right: 10%; top: 72%; }
+  .hero:after { display: none; }
+  .care-gallery { grid-template-columns: 1fr; gap: 32px; margin-top: 35px; }
+  .care-photo { aspect-ratio: 1.5; }
+  .care-gallery figcaption { padding-top: 18px; }
+  .care-gallery figcaption > span { font-size: 7px; }
+  .care-gallery h3 { font-size: 19px; margin-top: 9px; }
+  .care-gallery figcaption p { font-size: 10px; }
+  .medical-device-photo { top: 62px; height: calc(100% - 132px); }
+  .scenario-grid { grid-template-columns: 1fr; gap: 18px; }
+  .scenario-card, .scenario-card:last-child { height: 310px; grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .care-gallery figure:hover img { transform: none; }
+}

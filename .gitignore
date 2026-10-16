@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+__pycache__/
+/scripts/
+/assets/ocean-vessel.jpg
+/assets/offshore.jpg

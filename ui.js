@@ -122,7 +122,26 @@
 
   const form = $('#contact-form');
   const contact = $('#contact-dialog');
+  const contactImage = $('.contact-aside > img', contact);
+  let contactImageRequest = 0;
   let formStep = 0;
+  function updateContactImage(key, animate = false) {
+    const src = `assets/generated/${(scenes[key] || scenes.merchant).image}.webp`;
+    const request = ++contactImageRequest;
+    contactImage.getAnimations().forEach(animation => animation.cancel());
+    if (contactImage.getAttribute('src') === src) return;
+    if (!animate) { contactImage.src = src; return; }
+    const image = new Image();
+    image.src = src;
+    image.decode().then(() => {
+      if (request !== contactImageRequest || !contact.open) return;
+      contactImage.src = src;
+      if (!motion.matches) contactImage.animate([
+        { opacity: 0 },
+        { opacity: getComputedStyle(contactImage).opacity },
+      ], { duration: 480, easing: 'cubic-bezier(.22,1,.36,1)' });
+    }).catch(() => {});
+  }
   function selectFormStep(step, focus = false) {
     formStep = step;
     $$('[data-form-step]', form).forEach((fieldset, i) => { fieldset.hidden = i !== step; fieldset.disabled = i !== step; });
@@ -145,8 +164,12 @@
     $('.form-progress', contact).hidden = false;
     const key = button.dataset.contact || document.body.dataset.scene || 'merchant';
     $(`input[name="scene"][value="${scenes[key] ? key : 'merchant'}"]`, form).checked = true;
+    updateContactImage(key);
     selectFormStep(0);
     openDialog(contact, button);
+  }));
+  $$('input[name="scene"]', form).forEach(input => input.addEventListener('change', () => {
+    if (input.checked) updateContactImage(input.value, true);
   }));
   $('#form-next')?.addEventListener('click', () => selectFormStep(1, true));
   $('#form-back')?.addEventListener('click', () => selectFormStep(0));
@@ -164,7 +187,11 @@
     $('#form-success h3').focus({ preventScroll: true });
     animateSwap($('#form-success'));
   });
-  contact?.addEventListener('close', resetForm);
+  contact?.addEventListener('close', () => {
+    ++contactImageRequest;
+    contactImage.getAnimations().forEach(animation => animation.cancel());
+    resetForm();
+  });
 
   const scenario = $('#scenario-dialog');
   $$('[data-scenario]').forEach(button => button.addEventListener('click', () => {
